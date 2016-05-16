@@ -11,7 +11,7 @@ end
 
 post '/messages' do
   @message = Message.new(
-    title: params[:title],
+    url: params[:url],
     content: params[:content],
     author: params[:author]
     )
@@ -20,7 +20,6 @@ post '/messages' do
   else
     erb :'messages/new'
   end
-
 end
 
 get '/messages/new' do 
@@ -33,7 +32,27 @@ get '/messages' do
   erb :'messages/show'
 end
 
+
+# /messages?id=4567890
+
+
 get '/messages/:id' do 
   @message = Message.find params[:id]
   erb :'messages/show'
 end
+
+# /messages/4567890
+
+
+
+# delete '/messages/:id' do
+#   active record delete method params[:id]
+
+# patch
+
+# put '/messages/:id' do
+#   active record edit method 
+
+
+# get '/messages/:id?action=delete' do
+#   active record delete method params[:id]
